@@ -1,10 +1,14 @@
+#cria o banco de dados biblioteca
 CREATE DATABASE biblioteca;
+
+#usa o banco de dados biblioteca
 USE biblioteca;
 
 CREATE TABLE aluno(
 	id_aluno INT AUTO_INCREMENT,
 	nome_aluno VARCHAR(50) NOT NULL,
 	telefone_aluno VARCHAR(10) NOT NULL,
+	rg_aluno VARCHAR(11) NOT NULL,
 	PRIMARY KEY (id_aluno)
 );
 DESC aluno;
@@ -47,6 +51,15 @@ CREATE TABLE status_locacao(
 );
 DESC status_locacao;
 
+CREATE TABLE exemplar(
+	id_exemplar INT AUTO_INCREMENT,
+	PRIMARY KEY (id_exemplar)
+);
+DESC exemplar;
+
+
+#criacao de relacionamento entre tabelas
+
 ALTER TABLE locacao ADD COLUMN id_aluno INT NOT NULL;
 ALTER TABLE locacao ADD FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
 ALTER TABLE locacao ADD COLUMN id_status_locacao INT NOT NULL;
@@ -58,3 +71,6 @@ ALTER TABLE livro ADD COLUMN id_autor INT NOT NULL;
 ALTER TABLE livro ADD FOREIGN KEY (id_autor) REFERENCES autor(id_autor);
 ALTER TABLE livro ADD COLUMN id_editora INT NOT NULL;
 ALTER TABLE livro ADD FOREIGN KEY (id_editora) REFERENCES editora(id_editora);
+
+ALTER TABLE exemplar ADD COLUMN id_livro INT NOT NULL;
+ALTER TABLE exemplar ADD FOREIGN KEY (id_livro) REFERENCES livro(id_livro);
