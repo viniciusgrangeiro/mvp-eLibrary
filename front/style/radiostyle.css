@@ -1,0 +1,53 @@
+.radio-button,
+.checkbox {
+  position: relative;
+  margin: 20px 0;
+}
+.checkbox { display: block; }
+
+.radio-button input,
+.checkbox input {
+  position: absolute;
+  margin: 5px;
+  padding: 0;
+  /* for mobile accessibility (iOS Label Bug) */
+  visibility: hidden;
+}
+.radio-button .label-visible,
+.checkbox .label-visible {
+  margin-left: 2em;
+  margin-bottom: 0;
+}
+
+.fake-radiobutton,
+.fake-checkbox{
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid slategray;
+  background-color: white;
+}
+.fake-radiobutton:after,
+.fake-checkbox:after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: navy;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.fake-radiobutton { border-radius: 50%; }
+.fake-radiobutton:after { border-radius: 50%; }
+
+input[type="radio"]:checked + span .fake-radiobutton:after,
+input[type="checkbox"]:checked + span .fake-checkbox:after { display: block; }
+
+
+h1 { font-family: Arial,Helvetica,sans-serif; }
