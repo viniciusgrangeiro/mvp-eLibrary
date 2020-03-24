@@ -4,15 +4,15 @@
       <link rel="stylesheet" href="style/estilo.css">
     </head>
     <body>
-        <form method="POST" action="../back/Livro.php">
+        <form method="POST" action="../back/cadastraLivro?form=1.php">
             <center>
-                <h2>Nome do Livro:</h2> <input type="text" name="nomeLivro">
+                <h2>Nome do Livro:</h2> <input type="text" name="nomeLivro" required>
                 <br>
-                <h2>Nome do Autor:</h2> <input type="text" name="nomeAutor">
+                <h2>Nome do Autor:</h2> <input type="text" name="nomeAutor" required>
                 <br>
-                <h2>  Nome da Editora:</h2> <input type="text" name="nomeEditora">
+                <h2>Nome da Editora:</h2> <input type="text" name="nomeEditora" required>
                 <br>
-                <h2>Qtd:</h2> <input type="text" name="qtd"> <br>
+                <h2>Qtd:</h2> <input type="number" name="qtd" required> <br>
 
                 <button>Cadastrar</button>
             </center>

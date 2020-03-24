@@ -1,5 +1,5 @@
 <?php
 
-$conex = mysqli_connect('localhost', 'root', '', 'biblioteca');
+$conexao = mysqli_connect('localhost', 'root', '', 'biblioteca');
 
 ?>
