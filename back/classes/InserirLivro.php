@@ -66,18 +66,21 @@ Class InserirLivro extends Livro
             $conexao->query("INSERT INTO livro(nome_livro, id_autor, id_editora) 
             VALUES('$this->nomeLivro', '$autor', '$editora') ");
             $this->cadastraExemplar();
+            header("location: ../front/cadastrarLivros.html");
         }
         else if($autor == false && $editora == true){
             $this->cadastraAutor();
             $conexao->query("INSERT INTO livro(nome_livro, id_autor, id_editora) 
             VALUES('$this->nomeLivro', (SELECT count(id_autor) from autor), '$editora') ");
             $this->cadastraExemplar();
+            header("location: ../front/cadastrarLivros.html");
         }
         else if($autor == true && $editora == false){
             $this->cadastraEditora();
             $conexao->query("INSERT INTO livro(nome_livro, id_autor, id_editora) 
             VALUES('$this->nomeLivro', '$autor', (SELECT count(id_editora) from editora)) ");
             $this->cadastraExemplar();
+            header("location: ../front/cadastrarLivros.html");
         }
         else{
             $this->cadastraAutor();
@@ -89,6 +92,7 @@ Class InserirLivro extends Livro
                              (SELECT count(id_autor) from autor), 
                              (SELECT count(id_editora) from editora))");
             $this->cadastraExemplar();
+            header("location: ../front/cadastrarLivros.html");
         }
     }
 
