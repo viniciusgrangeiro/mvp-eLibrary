@@ -1,9 +1,9 @@
 <?php
 
-include 'classes/InserirLivro.php';
+include 'classes/CrudLivro.php';
 
 if($_GET["form"] == 1){
-    $l = new InserirLivro;
+    $l = new CrudLivro;
     $l->setNomeLivro($_POST["nomeLivro"]);
     $l->setNomeAutor($_POST["nomeAutor"]);
     $l->setNomeEditora($_POST["nomeEditora"]);
